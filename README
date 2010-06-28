@@ -1,3 +1,5 @@
+.h1 running the game
+  ruby game_window.rb
 
 TODO
 * create map
