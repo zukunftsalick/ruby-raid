@@ -15,7 +15,8 @@ class RubyRaid < Chingu::Window
 
     @background_image = Gosu::Image.new(self, "files/space.png", true)
   end
-
+  
+  # Testando permissões no github.
   def update
     super
     self.caption = "Ruby-Raid"
