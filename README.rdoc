@@ -7,10 +7,44 @@ You need the Chingu gem
 then you can just run:
   ruby game_window.rb
 
+== Suggested Gameplay
+  You are Rubee, a young rails locomotive who is trying to overcome obstacles in life.
+  Rubee's path to success is to destroy his enemies (XML, Java and others) by throwing
+  in its enemies a powerful piece of rail. At the end of each phase Rubee learns an
+  important lesson which can be for example:  in IRB, you can use '_' to retrieve the last
+  returned value.
+
+== Working on
+When working on something please cut the task from TODO and add it here putting your name
+besides it.
+
+(pedro)- we need some 'exploding' animation when hitting the enemies either by shotting them or by crashing into them
+
 == TODO
   * create map
-  * create game characteres
-  * add physics when bumping to "walls", enemies
+    - use vertical or horizontal navigation for the map (if horizontal it' s easier to
+      to use a train(locomotive) as the main player) otherwise we need to find out a
+      better main player than Ruby logo
+    - preferably use text file to create an map
+    - if using yml create a system to edit/save maps on the fly
+    - use paralax effects in background
+  * create game enemies
+    - something that represents anti-ruby values like java, xml...
+    - define at least 3 different enemies with different behaviors
+    - they can be moving enemies or static enemies
   * game menu
+    - create game states, like Menu, Pause, Game Over, and Playing
   * game music
+    - add sound effects for explosions, gun shots, locomotive sounds
+    - compose background song or find an open source one
+  * main player
+    - implement an energy bar or lifes concept
+    - use sprites to emulate motion
+    - implement space bar as action keys (fire rail)
+    - when dying, present GameOver state
+    - 10 rail's pieces as maximum ammo
+  * gameplay
+    - add 'extra life' or 'energy increase' concept
+    - add game score concept
+    - player can collect ammo to reload
 
