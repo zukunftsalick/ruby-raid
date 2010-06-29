@@ -24,8 +24,10 @@ class RubyRaid < Chingu::Window
       Java.create
     end
 
-    @train.each_collision(Java) do |player, enemy|
-      enemy.destroy
+    @train.each_bounding_box_collision(Java) do |player, enemy|
+      player.destroy
+      @text = Chingu::Text.create("#{player.inspect}", :x => 200, :y => 50, :zorder => 55, :factor_x => 2.0)
+      @text.draw
       #@score+=10
     end
   end

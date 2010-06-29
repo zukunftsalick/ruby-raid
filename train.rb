@@ -1,5 +1,5 @@
 class Train < Chingu::GameObject
-  trait :bounding_circle
+  trait :bounding_box
   traits :collision_detection, :velocity
 
   def initialize(options = {})
@@ -9,8 +9,8 @@ class Train < Chingu::GameObject
     self.max_velocity = 15
   end
 
-  def move_left;  @x -= 1; end
-  def move_right; @x += 1; end
+  def move_left;  @x -= 5; end
+  def move_right; @x += 5; end
   def move_up;    @y -= 1; end
   def move_down;  @y += 1; end
 
@@ -25,11 +25,15 @@ class Train < Chingu::GameObject
   end
 
   def update
-    self.velocity_x *= 0.95 # dampen the movement
+    self.velocity_x *= 0.95
     self.velocity_y *= 0.95
 
-    @x %= $window.width # wrap around the screen
+    @x %= $window.width
     @y %= $window.height
+  end
+
+  def destroy
+    puts " destroyed"
   end
 end
 
