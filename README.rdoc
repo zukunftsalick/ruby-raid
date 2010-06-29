@@ -1,6 +1,10 @@
 = Ruby-Raid
 
 == running the game
+You need the Chingu gem
+  gem install chingu
+
+then you can just run:
   ruby game_window.rb
 
 == TODO
