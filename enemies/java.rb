@@ -4,7 +4,7 @@ class Java < Chingu::GameObject
   trait :animation, :delay => 200
 
   def initialize(options={})
-    super(:width => 50, :height => 50, :image => Image["files/java-300.png"])
+    super(:width => 50, :height => 50, :image => Image["media/java.png"])
 
     self.x =rand * 800
     self.y =rand * 600
