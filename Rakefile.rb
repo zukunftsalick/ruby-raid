@@ -9,3 +9,7 @@ Rake::RDocTask.new do |rd|
    rd.rdoc_files.include("README.rdoc", "enemies/**/*.rb", "train.rb", "game_window.rb")
 end
 
+task :run do 
+	ruby "game_window.rb"
+end
+
