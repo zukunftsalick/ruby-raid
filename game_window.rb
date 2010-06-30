@@ -10,12 +10,12 @@ class RubyRaid < Chingu::Window
     super(800,600,false)
     self.input = { :escape => :exit }
 
-    @train = Train.create(:x => 350, :y => 350, :image => Image["files/ruby-100.png"],
+    @train = Train.create(:x => 350, :y => 350, :image => Image["media/ruby-100.png"],
       :width =>50, :height =>50)
 
-    @background_image = Gosu::Image.new(self, "files/space.png", true)
+    @background_image = Gosu::Image.new(self, "media/space.png", true)
   end
-  
+
   def update
     super
     self.caption = "Ruby-Raid"
@@ -26,8 +26,10 @@ class RubyRaid < Chingu::Window
 
     @train.each_bounding_box_collision(Java) do |player, enemy|
       player.destroy
-      @text = Chingu::Text.create("#{player.inspect}", :x => 200, :y => 50, :zorder => 55, :factor_x => 2.0)
-      @text.draw
+      enemy.height = 33
+      enemy.width = 33
+      enemy.image = Image["media/java_explode_2.png"]
+      player.hit_by(enemy)
       #@score+=10
     end
   end
