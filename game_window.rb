@@ -29,6 +29,7 @@ class RubyRaid < Chingu::Window
       enemy.height = 33
       enemy.width = 33
       enemy.image = Image["media/java_explode_2.png"]
+      player.hit_by(enemy)
       #@score+=10
     end
   end

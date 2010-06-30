@@ -1,12 +1,14 @@
 class Train < Chingu::GameObject
   trait :bounding_box
-  traits :collision_detection, :velocity
+  traits :collision_detection, :velocity, :timer
 
   def initialize(options = {})
     super(options)
     self.input = { :holding_left => :move_left, :holding_right => :move_right,
       :holding_up=>:accelerate, :holding_down => :brake, :move_down => :move_down }
     self.max_velocity = 15
+    @red = Gosu::Color.new(0xFFFF0000)
+    @white = Gosu::Color.new(0xFFFFFFFF)
   end
 
   def move_left;  @x -= 5; end
@@ -35,5 +37,10 @@ class Train < Chingu::GameObject
   def destroy
     puts " destroyed"
   end
+
+  def hit_by(object)
+    during(100) { self.color = @red; self.mode = :additive }.then { self.color = @white; self.mode = :default }
+  end
+
 end
 
