@@ -1,24 +1,28 @@
 class Java < Chingu::GameObject
   trait :bounding_box
   trait :collision_detection
-  trait :timer
+  traits :timer
 
-  def initialize(options={})
-    super(:width => 50, :height => 50, :image => "media/java.png")
-
-    self.x =rand * 800
-    self.y =rand * 600
-    cache_bounding_box
+  def initialize(options = {})
+    super(:x =>rand * 800, :y =>rand * 600)
+   
+    @animation = Chingu::Animation.new(:file => "media/droid_11x15.bmp", :delay => 100)
+    @animation.frame_names = { :scan => 0..1, :explode => 2..11 }
+    
+    @frame_name = :scan
+    self.factor = $window.factor
+    update
   end
 
   def update
+    @image = @animation[@frame_name].next
     self.draw
   end
-
+  
   def hit_by(object)
-    #during(1000) {self.image = Image["media/java_explode.png"]}
-    during(3000) {self.image = Image["media/java_explode_2.png"]}
-    self.destroy
+    @frame_name = :explode
+    @animation.delay = 1000
+    after(2000) {self.destroy}
   end
 end
 

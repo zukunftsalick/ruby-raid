@@ -5,14 +5,18 @@ Dir["characters/*.rb"].each {|file| require file }
 include Gosu
 
 class RubyRaid < Chingu::Window
+  attr_reader :factor
+  
   def initialize
     super(800,600,false)
+    @factor = 6
     self.input = { :escape => :exit }
 
     @train = Train.create(:x => 350, :y => 350, :image => Image["media/ruby-100.png"],
       :width =>50, :height =>50)
-
+      
     @background_image = Gosu::Image.new(self, "media/space.png", true)
+    retrofy
   end
 
   def update
