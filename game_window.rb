@@ -1,8 +1,7 @@
 #!/usr/bin/env ruby
 require 'rubygems'
 require "chingu"
-require 'train'
-Dir["enemies/*.rb"].each {|file| require file }
+Dir["characters/*.rb"].each {|file| require file }
 include Gosu
 
 class RubyRaid < Chingu::Window
@@ -25,11 +24,11 @@ class RubyRaid < Chingu::Window
     end
 
     @train.each_bounding_box_collision(Java) do |player, enemy|
-      player.destroy
       enemy.height = 33
       enemy.width = 33
       enemy.image = Image["media/java_explode_2.png"]
       player.hit_by(enemy)
+      enemy.hit_by(player)
       #@score+=10
     end
   end
