@@ -18,7 +18,7 @@ then you can just run:
 When working on something please cut the task from TODO and add it here putting your name
 besides it.
 
-(pedro)- we need some 'exploding' animation when hitting the enemies either by shotting them or by crashing into them
+on hold - (pedro)- we need some 'exploding' animation when hitting the enemies either by shotting them or by crashing into them
 
 == TODO
   * create map

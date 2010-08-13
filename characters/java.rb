@@ -6,11 +6,12 @@ class Java < Chingu::GameObject
   def initialize(options = {})
     super(:x =>rand * 800, :y =>rand * 600)
    
-    @animation = Chingu::Animation.new(:file => "media/droid_11x15.bmp", :delay => 100)
+    #@animation = Chingu::Animation.new(:file => "media/droid_11x15.bmp", :delay => 100)
+    @animation = Chingu::Animation.new(:file => "media/java_33x33.png", :delay => 100)
     @animation.frame_names = { :scan => 0..1, :explode => 2..11 }
     
     @frame_name = :scan
-    self.factor = $window.factor
+    self.factor = 1 #$window.factor
     update
   end
 
@@ -22,7 +23,7 @@ class Java < Chingu::GameObject
   def hit_by(object)
     @frame_name = :explode
     @animation.delay = 1000
-    after(2000) {self.destroy}
+    after(1000) {self.destroy}
   end
 end
 
