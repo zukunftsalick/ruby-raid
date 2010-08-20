@@ -10,7 +10,7 @@ class Java < Chingu::GameObject
     @animation.frame_names = { :scan => 0..1, :explode => 2..11 }
     
     @frame_name = :scan
-    self.factor = 1 #$window.factor
+    self.factor = 1.5 #$window.factor
     update
   end
 
