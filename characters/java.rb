@@ -6,7 +6,6 @@ class Java < Chingu::GameObject
   def initialize(options = {})
     super(:x =>rand * 800, :y =>rand * 600)
    
-    #@animation = Chingu::Animation.new(:file => "media/droid_11x15.bmp", :delay => 100)
     @animation = Chingu::Animation.new(:file => "media/java_33x33.png", :delay => 100)
     @animation.frame_names = { :scan => 0..1, :explode => 2..11 }
     
