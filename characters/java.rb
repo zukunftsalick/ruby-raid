@@ -21,8 +21,8 @@ class Java < Chingu::GameObject
   end
 
   def hit_by(object)
-    @sound.play unless @sound_played?
-    @sound_played? = true
+    @sound.play unless @sound_played
+    @sound_played = true
     @frame_name = :explode
     @animation.delay = 1000
     after(1000) {self.destroy}

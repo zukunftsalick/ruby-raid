@@ -4,19 +4,28 @@ class PHP < Chingu::GameObject
   traits :timer
 
   def initialize(options = {})
-    super(:x =>rand * 800, :y =>rand * 600, :image => Image["php.png"], :width =>50, :height =>50)
+    super(:x =>rand * 800, :y =>rand * 600)
 
-    self.factor = 1.5 #$window.factor
-    @sound = Sound["grenade.wav"]
+    @animation = Chingu::Animation.new(:file => "media/php_33x33.png", :delay => 150)
+    @animation.frame_names = { :scan => 0..1, :explode => 2..11 }
+
+    @frame_name = :scan
+    self.factor = 1.5
+    @sound = Sound["suckers.wav"]
     update
   end
 
   def update
+    @image = @animation[@frame_name].next
     self.draw
   end
 
   def hit_by(object)
-    @sound.play
+    @sound.play unless @sound_played
+    @sound_played = true
+    @frame_name = :explode
+    @animation.delay = 1000
+    after(1000) {self.destroy}
   end
 end
 

@@ -12,7 +12,7 @@ class Level < Chingu::GameState
   def update
     super
     Java.create.draw if rand(100) < 4 && Java.all.size < 5
-    #PHP.create.draw if rand(100) < 4 && Java.all.size < 5
+    PHP.create.draw if rand(100) < 4 && PHP.all.size < 5
 
     @train.each_bounding_box_collision(Java, PHP) do |player, enemy|
       player.hit_by(enemy)
