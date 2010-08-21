@@ -14,7 +14,8 @@ class RubyRaid < Chingu::Window
     self.caption = "Ruby-Raid"
 
     retrofy
-    transitional_game_state(Chingu::GameStates::FadeTo, :speed => 10)
+    transitional_game_state(Chingu::GameStates::FadeTo, :speed => 10) 
+    
   end
 
   def push
