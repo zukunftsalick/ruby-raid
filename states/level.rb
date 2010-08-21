@@ -5,7 +5,7 @@ class Level < Chingu::GameState
     :width =>50, :height =>50, :zorder => 12)
 
     @background_image = Image["media/space.png"]
-    @song = Song["tetris_drm_tetrisbgm1.mid"]
+    @song = Song["power-juice.mp3"]
     @song.play
   end
 

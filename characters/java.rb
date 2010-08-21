@@ -2,7 +2,7 @@ class Java < Chingu::GameObject
   trait :bounding_box
   trait :collision_detection
   traits :timer
-
+  
   def initialize(options = {})
     super(:x =>rand * 800, :y =>rand * 600)
 
@@ -11,7 +11,7 @@ class Java < Chingu::GameObject
 
     @frame_name = :scan
     self.factor = 1.5
-    @sound = Sound["grenade.wav"]
+    @sound = Sound["suckers.wav"]
     update
   end
 
@@ -21,7 +21,8 @@ class Java < Chingu::GameObject
   end
 
   def hit_by(object)
-    @sound.play
+    @sound.play unless @sound_played?
+    @sound_played? = true
     @frame_name = :explode
     @animation.delay = 1000
     after(1000) {self.destroy}
